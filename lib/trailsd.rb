@@ -12,6 +12,7 @@ DB.create_table :trails do
   String :name
   String :subdomain
   String :room
+  String :uuid
 end unless DB.table_exists?(:trails)
 
 require 'trailsd/trail'

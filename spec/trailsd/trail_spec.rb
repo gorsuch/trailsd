@@ -8,6 +8,7 @@ describe Trailsd::Trail do
     it 'requires a name'
     it 'requires a subdomain'
     it 'requires a room'
+    it 'requires a uuid'
   end
 
   context 'all_as_json' do
