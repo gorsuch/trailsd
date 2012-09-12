@@ -22,4 +22,6 @@ describe Trailsd::Trail do
 
     it 'should only return safe values'
   end
+
+  context 'emit'
 end

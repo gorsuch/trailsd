@@ -31,4 +31,6 @@ describe Trailsd::Web do
       last_response.body.should eq(values.to_json)
     end
   end
+
+  context 'POST /callbacks/cloudmailin'
 end
