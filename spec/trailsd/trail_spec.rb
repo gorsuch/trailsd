@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Trailsd::Trail do
-  context 'validations' do
+  describe 'validations' do
     let(:trail) { Trailsd::Trail.new }
 
     it 'requires an api_key'
@@ -11,7 +11,7 @@ describe Trailsd::Trail do
     it 'requires a uuid'
   end
 
-  context 'all_values' do
+  describe 'all_values' do
     before(:each) do
       Trailsd::Trail.delete
     end
@@ -23,5 +23,7 @@ describe Trailsd::Trail do
     it 'should only return safe values'
   end
 
-  context 'emit'
+  describe 'emit' do
+
+  end
 end
