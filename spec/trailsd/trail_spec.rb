@@ -24,6 +24,6 @@ describe Trailsd::Trail do
   end
 
   describe 'emit' do
-
+    it 'should call Tinder appropriately'
   end
 end
