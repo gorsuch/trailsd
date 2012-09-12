@@ -6,7 +6,7 @@ end
 
 require 'trailsd/config'
 
-DB = Sequel.connect ENV['DATABASE_URL']
+DB = Sequel.connect Trailsd::Config.database_url
 
 DB.create_table :trails do
   primary_key :id
