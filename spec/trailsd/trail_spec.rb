@@ -11,13 +11,13 @@ describe Trailsd::Trail do
     it 'requires a uuid'
   end
 
-  context 'all_as_json' do
+  context 'all_values' do
     before(:each) do
       Trailsd::Trail.delete
     end
 
-    it 'returns and empty json array' do
-      Trailsd::Trail.all_as_json.should eq('[]')
+    it 'returns and empty array' do
+      Trailsd::Trail.all_values.should eq([])
     end
   end
 end

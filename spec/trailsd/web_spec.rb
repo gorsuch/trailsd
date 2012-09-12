@@ -16,8 +16,8 @@ describe Trailsd::Web do
   end
 
   context 'GET /trails' do
-    it 'returns trails' do
-      Trailsd::Trail.should_receive(:all_as_json) { "[]" }
+    it 'returns an empty JSON array if there are no trails' do
+      Trailsd::Trail.stub(:all_values) { [] }
       get '/trails'
       last_response.should be_ok
       last_response.body.should eq('[]')

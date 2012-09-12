@@ -1,7 +1,7 @@
 module Trailsd
   class Trail < Sequel::Model
-    def self.all_as_json
-      all.map(&:values).to_json
+    def self.all_values
+      all.map(&:values)
     end
 
     def validate

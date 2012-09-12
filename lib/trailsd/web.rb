@@ -7,7 +7,7 @@ module Trailsd
     end
 
     get '/trails' do
-      Trail.all_as_json
+      Trail.all_values.to_json
     end
   end
 end
