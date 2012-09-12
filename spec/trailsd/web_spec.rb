@@ -16,6 +16,11 @@ describe Trailsd::Web do
   end
 
   context 'GET /trails' do
-    it 'returns trails'
+    it 'returns trails' do
+      Trailsd::Trail.should_receive(:all_as_json) { "[]" }
+      get '/trails'
+      last_response.should be_ok
+      last_response.body.should eq('[]')
+    end
   end
 end
