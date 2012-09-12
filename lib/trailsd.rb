@@ -8,6 +8,7 @@ DB = Sequel.connect ENV['DATABASE_URL']
 
 DB.create_table :trails do
   primary_key :id
+  String :api_key
   String :name
   String :subdomain
   String :room
