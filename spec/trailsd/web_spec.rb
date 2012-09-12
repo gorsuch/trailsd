@@ -22,5 +22,13 @@ describe Trailsd::Web do
       last_response.should be_ok
       last_response.body.should eq('[]')
     end
+
+    it 'returns an array of values if there are trails' do
+      values = [{"id" => 1, "a" => "b"}]
+      Trailsd::Trail.stub(:all_values) { values }
+      get '/trails'
+      last_response.should be_ok
+      last_response.body.should eq(values.to_json)
+    end
   end
 end
