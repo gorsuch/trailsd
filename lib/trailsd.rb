@@ -4,6 +4,8 @@ require 'sequel'
 module Trailsd
 end
 
+require 'trailsd/config'
+
 DB = Sequel.connect ENV['DATABASE_URL']
 
 DB.create_table :trails do
