@@ -4,7 +4,7 @@ describe Trailsd::Trail do
   describe 'validations' do
     let(:trail) { Trailsd::Trail.new }
 
-    it 'requires an api_key'
+    it 'requires a token'
     it 'requires a name'
     it 'requires a subdomain'
     it 'requires a room'
@@ -24,6 +24,19 @@ describe Trailsd::Trail do
   end
 
   describe 'emit' do
-    it 'should call Tinder appropriately'
+    before(:each) do
+      Trailsd::Trail.destroy
+      @trail = Trailsd::Trail.create({ 'token' => '1234', 'name' => 'foo', 'subdomain' => 'foo', 'room' => 'bar', 'uuid' => SecureRandom.hex(20) })
+    end
+
+    it 'should call Tinder appropriately' do
+      campfire_double = double('campfire')
+      Tinder::Campfire.should_receive(:new).with(@trail.subdomain, :token => @trail.token) { campfire_double }
+      room_double = double('room')
+      campfire_double.should_receive(:find_room_by_name).with(@trail.room) { room_double }
+      room_double.should_receive(:paste).with('hello')
+
+      @trail.emit('hello')        
+    end
   end
 end

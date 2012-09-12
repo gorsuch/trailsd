@@ -1,5 +1,6 @@
 require 'json'
 require 'sequel'
+require 'tinder'
 
 module Trailsd
 end
@@ -10,10 +11,10 @@ DB = Sequel.connect Trailsd::Config.database_url
 
 DB.create_table :trails do
   primary_key :id
-  String :api_key
   String :name
   String :subdomain
   String :room
+  String :token
   String :uuid
 end unless DB.table_exists?(:trails)
 
