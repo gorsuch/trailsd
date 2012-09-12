@@ -19,5 +19,7 @@ describe Trailsd::Trail do
     it 'returns and empty array' do
       Trailsd::Trail.all_values.should eq([])
     end
+
+    it 'should only return safe values'
   end
 end
